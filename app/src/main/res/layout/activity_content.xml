@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity"
+    android:orientation="vertical">
+
+    <Button
+        android:id="@+id/publishContent"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:onClick="publishContent"
+        android:text="发帖">
+    </Button>
+
+    <Button
+        android:id="@+id/queryContent"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:onClick="queryContentById"
+        android:text="根据Id查询帖子">
+    </Button>
+
+    <Button
+        android:id="@+id/qonditionQuery"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:onClick="queryContent"
+        android:text="分页查询">
+    </Button>
+
+    <Button
+        android:id="@+id/addConnents"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:onClick="addComment"
+        android:text="评论">
+    </Button>
+
+</LinearLayout>

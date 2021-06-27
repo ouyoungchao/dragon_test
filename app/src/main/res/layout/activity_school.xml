@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity"
+    android:orientation="vertical">
+
+    <Button
+        android:id="@+id/add"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:onClick="addSchool"
+        android:text="新增学校">
+    </Button>
+
+    <Button
+        android:id="@+id/querySchoolName"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:onClick="querySchoolByName"
+        android:text="查询具体学校信息"
+        >
+    </Button>
+
+    <Button
+        android:id="@+id/qeurySchool"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:onClick="querySchool"
+        android:text="分页查询"
+        >
+    </Button>
+
+    <Button
+        android:id="@+id/modifySchool"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:onClick="modifySchool"
+        android:text="修改学校"
+        >
+    </Button>
+</LinearLayout>

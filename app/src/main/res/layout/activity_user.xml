@@ -1,0 +1,143 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity"
+    android:orientation="vertical">
+
+   <Button
+       android:id="@+id/registerUser"
+       android:layout_width="match_parent"
+       android:layout_height="wrap_content"
+       android:onClick="registerUser"
+       android:text="注册用户">
+   </Button>
+
+   <Button
+       android:id="@+id/getSms"
+       android:layout_width="match_parent"
+       android:layout_height="wrap_content"
+       android:onClick="getSms"
+       android:text="获取验证码">
+   </Button>
+
+   <Button
+       android:id="@+id/loginByMobile"
+       android:layout_width="match_parent"
+       android:layout_height="wrap_content"
+       android:onClick="loginByMobile"
+       android:text="手机验证码登录"
+       >
+   </Button>
+
+   <Button
+       android:id="@+id/loginByUser"
+       android:layout_width="match_parent"
+       android:layout_height="wrap_content"
+       android:onClick="loginByUser"
+       android:text="密码登录"
+       >
+   </Button>
+
+   <Button
+       android:id="@+id/queryUser"
+       android:layout_width="match_parent"
+       android:layout_height="wrap_content"
+       android:onClick="queryUserById"
+       android:text="查询单个用户信息"
+       >
+   </Button>
+
+   <Button
+       android:id="@+id/queryUserByErrorId"
+       android:layout_width="match_parent"
+       android:layout_height="wrap_content"
+       android:onClick="queryUserByErrorId"
+       android:text="查询不存在的用户信息"
+       >
+   </Button>
+
+   <Button
+       android:id="@+id/queryUsers"
+       android:layout_width="match_parent"
+       android:layout_height="wrap_content"
+       android:onClick="queyUsers"
+       android:text="分页查询"
+       >
+   </Button>
+
+   <Button
+       android:id="@+id/queyUsersByCondition"
+       android:layout_width="match_parent"
+       android:layout_height="wrap_content"
+       android:onClick="queyUsersByCondition"
+       android:text="条件查询"
+       >
+   </Button>
+
+   <Button
+       android:id="@+id/updateUser"
+       android:layout_width="match_parent"
+       android:layout_height="wrap_content"
+       android:onClick="updataUser"
+       android:text="修改用户信息"
+       >
+   </Button>
+
+   <Button
+       android:id="@+id/updateMobile"
+       android:layout_width="match_parent"
+       android:layout_height="wrap_content"
+       android:onClick="updataMobile"
+       android:text="修改手机号"
+       >
+   </Button>
+
+   <Button
+       android:id="@+id/updatePwd"
+       android:layout_width="match_parent"
+       android:layout_height="wrap_content"
+       android:onClick="updataPwd"
+       android:text="修改密码"
+       >
+   </Button>
+
+   <Button
+       android:id="@+id/updateName"
+       android:layout_width="match_parent"
+       android:layout_height="wrap_content"
+       android:onClick="updataName"
+       android:text="修改用户名"
+       >
+   </Button>
+
+   <Button
+       android:id="@+id/uploadPortrait"
+       android:layout_width="match_parent"
+       android:layout_height="wrap_content"
+       android:onClick="uploadPortrait"
+       android:text="上传图片"
+       >
+   </Button>
+
+   <Button
+       android:id="@+id/logout"
+       android:layout_width="match_parent"
+       android:layout_height="wrap_content"
+       android:onClick="userLogout"
+       android:text="用户登出"
+       >
+   </Button>
+
+   <Button
+       android:id="@+id/hotUsers"
+       android:layout_width="match_parent"
+       android:layout_height="wrap_content"
+       android:onClick="queryHotUser"
+       android:text="查询热门用户"
+       >
+   </Button>
+
+</LinearLayout>
