@@ -15,6 +15,7 @@ public class Comments implements Serializable {
     private String message;
     private long commmentTime;
     private int starts;
+    private boolean isComment;
 
     public String getId() {
         return id;
@@ -62,5 +63,13 @@ public class Comments implements Serializable {
 
     public void setUserId(String userId) {
         this.userId = userId;
+    }
+
+    public boolean isComment() {
+        return isComment;
+    }
+
+    public void setComment(boolean comment) {
+        isComment = comment;
     }
 }

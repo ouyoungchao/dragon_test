@@ -8,11 +8,27 @@
     android:orientation="vertical">
 
     <Button
-        android:id="@+id/student"
+    android:id="@+id/student"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:onClick="studentTest"
+    android:text="学生认证">
+</Button>
+
+    <Button
+        android:id="@+id/manager"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:onClick="studentTest"
-        android:text="学生认证">
+        android:onClick="managerTest"
+        android:text="管理员认证">
+    </Button>
+
+    <Button
+        android:id="@+id/queryAllTask"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:onClick="queryAllTasks"
+        android:text="查询所有审批任务">
     </Button>
 
 </LinearLayout>

@@ -8,6 +8,33 @@
     android:orientation="vertical">
 
    <Button
+       android:id="@+id/addFans"
+       android:layout_width="match_parent"
+       android:layout_height="wrap_content"
+       android:onClick="addFans"
+       android:text="添加粉丝"
+       >
+   </Button>
+
+   <Button
+       android:id="@+id/deleteFans"
+       android:layout_width="match_parent"
+       android:layout_height="wrap_content"
+       android:onClick="deleteFans"
+       android:text="取消关注"
+       >
+   </Button>
+
+   <Button
+       android:id="@+id/queryFans"
+       android:layout_width="match_parent"
+       android:layout_height="wrap_content"
+       android:onClick="queryFans"
+       android:text="查询关注用户"
+       >
+   </Button>
+
+   <Button
        android:id="@+id/registerUser"
        android:layout_width="match_parent"
        android:layout_height="wrap_content"
@@ -24,11 +51,37 @@
    </Button>
 
    <Button
+       android:id="@+id/getUaSms"
+       android:layout_width="match_parent"
+       android:layout_height="wrap_content"
+       android:onClick="getUASms"
+       android:text="获取英国验证码">
+   </Button>
+
+   <Button
        android:id="@+id/loginByMobile"
        android:layout_width="match_parent"
        android:layout_height="wrap_content"
        android:onClick="loginByMobile"
        android:text="手机验证码登录"
+       >
+   </Button>
+
+   <Button
+       android:id="@+id/loginBySms"
+       android:layout_width="match_parent"
+       android:layout_height="wrap_content"
+       android:onClick="customerLogin"
+       android:text="号码一键式登陆"
+       >
+   </Button>
+
+   <Button
+       android:id="@+id/loginVisitor"
+       android:layout_width="match_parent"
+       android:layout_height="wrap_content"
+       android:onClick="visitorLogin"
+       android:text="游客登录"
        >
    </Button>
 
@@ -139,5 +192,7 @@
        android:text="查询热门用户"
        >
    </Button>
+
+
 
 </LinearLayout>

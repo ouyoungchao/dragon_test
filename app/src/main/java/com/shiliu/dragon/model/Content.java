@@ -1,5 +1,7 @@
 package com.shiliu.dragon.model;
 
+
+import java.io.Serializable;
 import java.util.List;
 
 /**
@@ -7,13 +9,15 @@ import java.util.List;
  * @createTime
  * @description
  */
-public class Content {
+public class Content implements Serializable {
 
     private String id;
 
     private String userId;
 
     private String message;
+
+    private String subject;
 
     /**
      * 附件
@@ -35,9 +39,10 @@ public class Content {
     public Content() {
     }
 
-    public Content(String userId, String message) {
+    public Content(String userId, String message, String subject) {
         this.userId = userId;
         this.message = message;
+        this.subject = subject;
     }
 
     public String getId() {
@@ -118,5 +123,13 @@ public class Content {
 
     public void setComments(int comments) {
         this.comments = comments;
+    }
+
+    public String getSubject() {
+        return subject;
+    }
+
+    public void setSubject(String subject) {
+        this.subject = subject;
     }
 }

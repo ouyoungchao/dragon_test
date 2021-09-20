@@ -64,8 +64,23 @@ public class UserActivity extends AppCompatActivity {
         });
     }
 
+    public void getUASms(View view) {
+        Request request = new Request.Builder().url(URL + "/dragon/code/sms?mobile=447745889086").build();
+        HttpClient.getClient().newCall(request).enqueue(new Callback() {
+            @Override
+            public void onFailure(Call call, IOException e) {
+                Log.e(TAG, "onFailure: ", e);
+            }
+
+            @Override
+            public void onResponse(Call call, Response response) throws IOException {
+                Log.e(TAG, "onResponse: " + response.body().string());
+            }
+        });
+    }
+
     public void registerUser(View view) {
-        User user = new User("8613012345679", "Oyc@1234", "Oyc@1234", "hunan", "ouyang", "cqupt", "12345678", "bioinfo", "111111", "1", null);
+        User user = new User("8617817098736", "Oyc@1234", "Oyc@1234", "hunan", "ouyang", "cqupt", "12345678", "bioinfo", "776405", "1", null);
         Gson gson = new Gson();
         String json = gson.toJson(user);
 
@@ -85,10 +100,32 @@ public class UserActivity extends AppCompatActivity {
         });
     }
 
+    public void customerLogin(View view) {
+        RequestBody requestBody = new FormBody.Builder()
+                .add("mobile", "8617817098736")
+                .add("smsCode", "651606")
+                .build();
+        Request request = new Request.Builder().url(URL + "/dragon/login/customer")
+                .post(requestBody).build();
+        HttpClient.getClient().newCall(request).enqueue(new Callback() {
+            @Override
+            public void onFailure(Call call, IOException e) {
+                Log.e(TAG, "Customer login failed ", e);
+            }
+
+            @Override
+            public void onResponse(Call call, Response response) throws IOException {
+                String body = new String(response.body().bytes());
+                Log.e(TAG, "Customer login success " + body);
+                getToken(body);
+            }
+        });
+    }
+
     public void loginByMobile(View view) {
         RequestBody requestBody = new FormBody.Builder()
-                .add("mobile", "8613012345679")
-                .add("smsCode", "111111")
+                .add("mobile", "8617817098736")
+                .add("smsCode", "912266")
                 .build();
         Request request = new Request.Builder().url(URL + "/dragon/authentication/mobile")
                 .post(requestBody).build();
@@ -146,10 +183,30 @@ public class UserActivity extends AppCompatActivity {
         });
     }
 
+    public void visitorLogin(View view) {
+        RequestBody requestBody = new FormBody.Builder()
+                .build();
+        Request request = new Request.Builder().url(URL + "/dragon/login/visitor")
+                .post(requestBody).build();
+        HttpClient.getClient().newCall(request).enqueue(new Callback() {
+            @Override
+            public void onFailure(Call call, IOException e) {
+                Log.e(TAG, "Visitor login failed ", e);
+            }
+
+            @Override
+            public void onResponse(Call call, Response response) throws IOException {
+                String body = new String(response.body().bytes(), "UTF-8");
+                Log.i(TAG, "Visitor login success " + body);
+                getToken(body);
+            }
+        });
+    }
+
     public void loginByUser(View view) {
         RequestBody requestBody = new FormBody.Builder()
-                .add("username", "8613012345679")
-                .add("password", "Oyc@1234")
+                .add("username", "admin")
+                .add("password", "admin")
                 .build();
         Request request = new Request.Builder().url(URL + "/dragon/authentication/user")
                 .post(requestBody).build();
@@ -332,6 +389,65 @@ public class UserActivity extends AppCompatActivity {
             @Override
             public void onResponse(Call call, Response response) throws IOException {
                 Log.i(TAG, "User query success " + new String(response.body().bytes(), "UTF-8"));
+            }
+        });
+    }
+
+    public void addFans(View view){
+        RequestBody requestBody = new FormBody.Builder()
+                .add("userId", "e66ca6ff5ec449ac8c9e74c9c84293f0")
+                .build();
+        Request request = new Request.Builder().url(URL + "/dragon/fans/follow").addHeader("token", TOKEN)
+                .post(requestBody).build();
+        HttpClient.getClient().newCall(request).enqueue(new Callback() {
+            @Override
+            public void onFailure(Call call, IOException e) {
+                Log.e(TAG, "User add fans failed ", e);
+            }
+
+            @Override
+            public void onResponse(Call call, Response response) throws IOException {
+                String body = new String(response.body().bytes(), "UTF-8");
+                Log.i(TAG, "User add fans success " + body);
+            }
+        });
+    }
+
+    public void deleteFans(View view){
+        RequestBody requestBody = new FormBody.Builder()
+                .add("userId", "e66ca6ff5ec449ac8c9e74c9c84293f0")
+                .build();
+        Request request = new Request.Builder().url(URL + "/dragon/fans/cancelFollow").addHeader("token", TOKEN)
+                .post(requestBody).build();
+        HttpClient.getClient().newCall(request).enqueue(new Callback() {
+            @Override
+            public void onFailure(Call call, IOException e) {
+                Log.e(TAG, "User add fans failed ", e);
+            }
+
+            @Override
+            public void onResponse(Call call, Response response) throws IOException {
+                String body = new String(response.body().bytes(), "UTF-8");
+                Log.i(TAG, "User add fans success " + body);
+            }
+        });
+    }
+
+    public void queryFans(View view){
+        RequestBody requestBody = new FormBody.Builder()
+                .build();
+        Request request = new Request.Builder().url(URL + "/dragon/fans/queryFans").addHeader("token", TOKEN)
+                .post(requestBody).build();
+        HttpClient.getClient().newCall(request).enqueue(new Callback() {
+            @Override
+            public void onFailure(Call call, IOException e) {
+                Log.e(TAG, "User query fans failed ", e);
+            }
+
+            @Override
+            public void onResponse(Call call, Response response) throws IOException {
+                String body = new String(response.body().bytes(), "UTF-8");
+                Log.i(TAG, "User query fans success " + body);
             }
         });
     }

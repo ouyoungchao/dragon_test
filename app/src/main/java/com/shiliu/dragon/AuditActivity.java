@@ -14,6 +14,7 @@ import java.io.IOException;
 
 import okhttp3.Call;
 import okhttp3.Callback;
+import okhttp3.FormBody;
 import okhttp3.MediaType;
 import okhttp3.MultipartBody;
 import okhttp3.Request;
@@ -41,7 +42,7 @@ public class AuditActivity extends AppCompatActivity {
         RequestBody requestBody = new MultipartBody.Builder()
                 .setType(MultipartBody.FORM)
                 .addFormDataPart("file",file1.getName(),fileBody1)
-                .addFormDataPart("file",file2.getName(),fileBody2)
+                .addFormDataPart("school","cqupt")
                 .build();
         Request request = new Request.Builder().addHeader("token",UserActivity.TOKEN).post(requestBody).url(URL+"/dragon/authentication/student")
                 .build();
@@ -56,5 +57,50 @@ public class AuditActivity extends AppCompatActivity {
                 Log.e(TAG, "onResponse: "+new String(response.body().bytes()));
             }
         });
+    }
+
+    public void managerTest(View view) {
+        File file1 = new File("/sdcard/oyc.jpg");
+        File file2 = new File("/sdcard/test.jpg");
+        RequestBody fileBody1 = RequestBody.create(MediaType.parse("image/png"), file1);
+        RequestBody fileBody2 = RequestBody.create(MediaType.parse("image/png"), file2);
+        RequestBody requestBody = new MultipartBody.Builder()
+                .setType(MultipartBody.FORM)
+                .addFormDataPart("file",file1.getName(),fileBody1)
+                .addFormDataPart("school","cqupt")
+                .build();
+        Request request = new Request.Builder().addHeader("token",UserActivity.TOKEN).post(requestBody).url(URL+"/dragon/authentication/manager")
+                .build();
+        HttpClient.getClient().newCall(request).enqueue(new Callback() {
+            @Override
+            public void onFailure(Call call, IOException e) {
+                Log.e(TAG, "onFailure: ",e );
+            }
+
+            @Override
+            public void onResponse(Call call, Response response) throws IOException {
+                Log.e(TAG, "onResponse: "+new String(response.body().bytes()));
+            }
+        });
+    }
+
+
+    public void queryAllTasks(View view) {
+
+        Request request = new Request.Builder().addHeader("token",UserActivity.TOKEN).post(RequestBody.create(MediaType.parse("application/json; charset=utf-8"),"")).url(URL+"/dragon/authentication/queryExamineTasks")
+                .build();
+        HttpClient.getClient().newCall(request).enqueue(new Callback() {
+
+            @Override
+            public void onFailure(Call call, IOException e) {
+                Log.e(TAG, "onFailure: ", e);
+            }
+
+            @Override
+            public void onResponse(Call call, Response response) throws IOException {
+                Log.e(TAG, "onResponse: "+new String(response.body().bytes()));
+            }
+        });
+
     }
 }
